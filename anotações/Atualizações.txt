@@ -1,0 +1,1 @@
+Realizado o ajuste do problema de espaçamento da tela horizontal na experiência mobile. (4/12/2025)
