@@ -1,0 +1,19 @@
+[build]
+  command = "CI=false npm run build"
+  publish = "build"
+```
+*Isso substitui aquela configuração manual que tentamos fazer no painel e garante que o comando `CI=false` funcione sempre.*
+
+### Passo 3: Enviar tudo para o GitHub
+Agora que o `App.js` é o dono da verdade e temos a configuração de deploy, vamos enviar.
+
+No terminal do VS Code, digite:
+
+```bash
+git add .
+```
+```bash
+git commit -m "Correção final App.js e Netlify config"
+```
+```bash
+git push

@@ -413,9 +413,11 @@ export default function App() {
     const chartGridColor = theme === 'dark' ? '#334155' : '#e2e8f0';
 
     return (
-        <div className="bg-slate-50 dark:bg-slate-900 min-h-screen font-sans text-gray-800 dark:text-gray-200 p-4 sm:p-6 lg:p-8">
+        // ADICIONADO: overflow-x-hidden para prevenir rolagem horizontal indesejada no mobile
+        <div className="bg-slate-50 dark:bg-slate-900 min-h-screen font-sans text-gray-800 dark:text-gray-200 p-4 sm:p-6 lg:p-8 overflow-x-hidden">
             <AddMonthModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onAddMonth={handleAdicionarMes} t={t} />
-            <div style={{ position: 'absolute', left: '-9999px', top: 0, zIndex: -10 }}><ReportTemplate data={dadosMesAtual} t={t} formatCurrency={formatCurrency} formatDateDisplay={formatDateDisplay} chartData={chartData} theme={theme} resultado={resultado} custoTotal={custoTotal} totalCustosFixos={totalCustosFixos} totalCustosVariaveis={totalCustosVariaveis} margemDeLucro={margemDeLucro} /></div>
+            {/* ALTERADO: position: 'fixed' em vez de 'absolute' para garantir que não afete a largura do documento no mobile */}
+            <div style={{ position: 'fixed', left: '-9999px', top: 0, zIndex: -10 }}><ReportTemplate data={dadosMesAtual} t={t} formatCurrency={formatCurrency} formatDateDisplay={formatDateDisplay} chartData={chartData} theme={theme} resultado={resultado} custoTotal={custoTotal} totalCustosFixos={totalCustosFixos} totalCustosVariaveis={totalCustosVariaveis} margemDeLucro={margemDeLucro} /></div>
             <div className="max-w-6xl mx-auto flex flex-col min-h-screen">
                 <main className="flex-grow">
                     <header className="text-center mb-4"><h1 className="text-4xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">{t('title')}</h1><p className="text-slate-600 dark:text-slate-400 mt-2 text-lg">{t('subtitle')}</p></header>
